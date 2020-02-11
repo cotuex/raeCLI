@@ -6,6 +6,7 @@ import (
 	"unicode"
 )
 
+// Article is the main structure in this program. It represents a RAE page
 type Article struct {
 	Title                string
 	Variants             string
@@ -17,12 +18,13 @@ type Article struct {
 	PossibleAlternatives []string
 }
 
+// Definition represents the multiple definitions of a word and the respective abbreviations
 type Definition struct {
 	Definition    string
 	Abbreviations []string
 }
 
-//
+// Scrape queries the RAE webpage and extracts the information
 func Scrape(word string) Article {
 	output := Article{}
 	c := colly.NewCollector()
